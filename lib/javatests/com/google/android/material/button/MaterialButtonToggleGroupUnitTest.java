@@ -55,11 +55,10 @@ public class MaterialButtonToggleGroupUnitTest {
   @Before
   public void createToggleGroupWithButtons() {
     toggleGroup = new MaterialButtonToggleGroup(context);
-    float cornerSize = CORNER_SIZE;
 
     for (int i = 0; i < 3; ++i) {
       MaterialButton child = new MaterialButton(context);
-      child.setShapeAppearanceModel(child.getShapeAppearanceModel().withCornerSize(cornerSize));
+      child.setShapeAppearanceModel(child.getShapeAppearanceModel().withCornerSize(CORNER_SIZE));
       toggleGroup.addView(child, i);
       getInstrumentation().waitForIdleSync();
     }
