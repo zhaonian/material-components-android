@@ -537,7 +537,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     params.rightMargin = 0;
   }
 
-  /** Sets all corner radii to 0 except for leftmost and rightmost corners. */
+  /** Sets all corner radius to 0 except for leftmost and rightmost corners. */
   @VisibleForTesting
   void updateChildShapes() {
     int childCount = getChildCount();
