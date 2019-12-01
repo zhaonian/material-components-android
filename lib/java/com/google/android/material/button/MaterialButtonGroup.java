@@ -1,6 +1,7 @@
 package com.google.android.material.button;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.MarginLayoutParamsCompat;
 
+import com.google.android.material.R;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.shape.AbsoluteCornerSize;
 import com.google.android.material.shape.CornerSize;
@@ -22,15 +24,15 @@ import java.util.List;
 
 public class MaterialButtonGroup extends LinearLayout {
   public MaterialButtonGroup(Context context) {
-    super(context);
+    super(context, null);
   }
 
   public MaterialButtonGroup(Context context, @Nullable AttributeSet attrs) {
-    super(context, attrs);
+    this(context, attrs, R.attr.materialButtonToggleGroupStyle);
   }
 
   public MaterialButtonGroup(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-    super(context, attrs, defStyleAttr);
+    super(context, attrs, R.attr.materialButtonToggleGroupStyle);
   }
 
   private final List<MaterialButtonGroup.CornerData> originalCornerData = new ArrayList<>();
@@ -49,7 +51,7 @@ public class MaterialButtonGroup extends LinearLayout {
     MaterialButton buttonChild = (MaterialButton) child;
 //    setGeneratedIdIfNeeded(buttonChild);
     // Sets sensible default values and an internal checked change listener for this child
-//    setupButtonChild(buttonChild);
+    setupButtonChild(buttonChild);
 
     // Reorders children if a checked child was added to this layout
 //    if (buttonChild.isChecked()) {
@@ -249,6 +251,25 @@ public class MaterialButtonGroup extends LinearLayout {
         .setBottomLeftCornerSize(cornerData.bottomLeft)
         .setTopRightCornerSize(cornerData.topRight)
         .setBottomRightCornerSize(cornerData.bottomRight);
+  }
+
+  /**
+   * Sets sensible default values for {@link MaterialButton} child of this group, set child to
+   * {@code checkable}, and set internal checked change listener for this child.
+   *
+   * @param buttonChild {@link MaterialButton} child to set up to be added to this {@link
+   *     MaterialButtonToggleGroup}
+   */
+  private void setupButtonChild(@NonNull MaterialButton buttonChild) {
+    buttonChild.setMaxLines(1);
+    buttonChild.setEllipsize(TextUtils.TruncateAt.END);
+//    buttonChild.setCheckable(true);
+
+//    buttonChild.addOnCheckedChangeListener(checkedStateTracker);
+//    buttonChild.setOnPressedChangeListenerInternal(pressedStateTracker);
+
+    // Enables surface layer drawing for semi-opaque strokes
+    buttonChild.setShouldDrawSurfaceColorStroke(true);
   }
   
   private static class CornerData {

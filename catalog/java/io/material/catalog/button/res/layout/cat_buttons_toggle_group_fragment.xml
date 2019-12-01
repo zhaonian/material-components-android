@@ -41,24 +41,24 @@
         app:singleSelection="true">
       <Button
           style="?attr/materialButtonOutlinedStyle"
-          android:layout_width="wrap_content"
+          android:layout_width="130dp"
           android:layout_height="wrap_content"
-          android:text="@string/cat_button_label_private"/>
+          android:text="aa"/>
       <Button
           style="?attr/materialButtonOutlinedStyle"
-          android:layout_width="wrap_content"
+          android:layout_width="70dp"
           android:layout_height="wrap_content"
-          android:text="@string/cat_button_label_team"/>
+          android:text="ss"/>
       <Button
           style="?attr/materialButtonOutlinedStyle"
-          android:layout_width="wrap_content"
+          android:layout_width="80dp"
           android:layout_height="wrap_content"
-          android:text="@string/cat_button_label_everyone"/>
+          android:text="c"/>
       <Button
           style="?attr/materialButtonOutlinedStyle"
-          android:layout_width="wrap_content"
+          android:layout_width="75dp"
           android:layout_height="wrap_content"
-          android:text="@string/cat_button_label_custom"/>
+          android:text="bv"/>
     </com.google.android.material.button.MaterialButtonGroup>
 
     <TextView
@@ -87,7 +87,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/cat_button_label_mushrooms"/>
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+    </com.google.android.material.button.MaterialButtonGroup>
 
     <TextView
         android:layout_width="wrap_content"
