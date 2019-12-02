@@ -3,7 +3,6 @@ package com.google.android.material.button;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -24,7 +23,7 @@ import java.util.List;
 
 public class MaterialButtonGroup extends LinearLayout {
   public MaterialButtonGroup(Context context) {
-    super(context, null);
+    this(context, null);
   }
 
   public MaterialButtonGroup(Context context, @Nullable AttributeSet attrs) {
@@ -32,7 +31,7 @@ public class MaterialButtonGroup extends LinearLayout {
   }
 
   public MaterialButtonGroup(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-    super(context, attrs, R.attr.materialButtonToggleGroupStyle);
+    super(context, attrs, defStyleAttr);
   }
 
   private final List<MaterialButtonGroup.CornerData> originalCornerData = new ArrayList<>();
